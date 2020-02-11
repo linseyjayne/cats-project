@@ -1,12 +1,13 @@
 import React from 'react';
-import './App.css';
 import isEmpty from 'lodash/isEmpty';
 
+import './App.css';
+import { Card } from './components/Card';
 
 function CatFacts(data) {
   if (isEmpty(data.facts)) return null;
   const items = data.facts.map((fact) =>
-    <li key={fact.id}>{fact.fact}</li>);
+    <li key={fact.id}><Card fact={fact.fact} /></li>);
   return (
     <ul>{items}</ul>
   );
@@ -20,9 +21,12 @@ class App extends React.Component {
         <header className="App-header">
           cats cats cats
         </header>
-          <div>
+          <div className="Body">
+            <div className="Cards">
+              <CatFacts facts={facts} />
+            </div>
           <button onClick={handleCatsClick}>pls give cats</button>
-          <CatFacts facts={facts} />
+
           </div>
       </div>
     );

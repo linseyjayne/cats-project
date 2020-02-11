@@ -21,6 +21,10 @@ export const fetchData = async () => {
     }
   };
 
+// maybe TODO
+// optimize factsWithUniqueId + factsWithLastWordSliced so that
+// we only loop through the data one time
+
 export const factsWithUniqueId = (data) => {
     let withUniqueIds = data;
     withUniqueIds.forEach((fact) => {

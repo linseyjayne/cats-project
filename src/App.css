@@ -16,3 +16,21 @@
 .App-link {
   color: #61dafb;
 }
+
+.Body { 
+  max-width: 1136px;
+  margin: 0 auto;
+  margin-top: 0px;
+  margin-right: auto;
+  margin-bottom: 0px;
+  margin-left: auto;
+}
+
+.Cards {
+  display: flex;
+  justify-content: center;
+}
+
+ul {
+  list-style-type: none;
+}
