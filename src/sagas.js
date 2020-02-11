@@ -29,11 +29,27 @@ export const factsWithUniqueId = (data) => {
       return withUniqueIds;
 }
 
+export const stripNonAlphaNumeric = (word) => {
+    const alphaNumericOnly = word.replace(/[^A-Za-z0-9]/g, "");
+    return alphaNumericOnly;
+}
+
+export const factsWithLastWordSliced = (data) => {
+    let withLastWords = data;
+    withLastWords.forEach((fact) => {
+        var fullFact = fact.fact;
+        var startOfLastWord = fullFact.lastIndexOf(" ") + 1;
+        var lastWord = fullFact.substring(startOfLastWord, fullFact.length);
+        fact.lastWord = stripNonAlphaNumeric(lastWord);
+    });
+    return withLastWords;
+}
+
 function* fetchCatFacts(action) {
     try {
         const catData = yield call(fetchData);
-        const facts = factsWithUniqueId(catData.data);
-        // TODO slice out last word in cat fact
+        let facts = factsWithUniqueId(catData.data);
+        facts = factsWithLastWordSliced(facts);
         yield put({type: "CATS_FACTS_SUCCEEDED", facts});
     } catch (e) {
         console.log(e.message);
