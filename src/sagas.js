@@ -4,6 +4,8 @@ import {
     takeEvery, 
 } from 'redux-saga/effects'
 
+import uniqueId from 'lodash/uniqueId';
+
 import { 
     CAT_FACTS_API_URL,
     GET_CATS
@@ -19,12 +21,19 @@ export const fetchData = async () => {
     }
   };
 
+export const factsWithUniqueId = (data) => {
+    let withUniqueIds = data;
+    withUniqueIds.forEach((fact) => {
+        fact.id = uniqueId('fact_');
+      });
+      return withUniqueIds;
+}
+
 function* fetchCatFacts(action) {
     try {
         const catData = yield call(fetchData);
-        const facts = catData.data;
+        const facts = factsWithUniqueId(catData.data);
         // TODO slice out last word in cat fact
-        // TODO save unique ID w/ each data for mapping
         yield put({type: "CATS_FACTS_SUCCEEDED", facts});
     } catch (e) {
         console.log(e.message);
