@@ -3,7 +3,8 @@ import { combineReducers } from 'redux';
 const factsReducer = (state={}, action) => {
   switch(action.type) {
     case "CATS_FACTS_SUCCEEDED": {
-      state = {...state, data: action.facts }
+      //todo help this to have more than 25 facts
+      state = action.facts
       break;
     }
   }
