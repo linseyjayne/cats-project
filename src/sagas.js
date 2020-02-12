@@ -7,7 +7,6 @@ import {
 import uniqueId from 'lodash/uniqueId';
 
 import { 
-    getCats,
     fetchFactsSuccess,
     fetchFactsFail,
     fetchImagesSuccess,
@@ -97,8 +96,6 @@ export const factsWithLastWordSliced = (data) => {
 }
 
 function* fetchFacts(action) {
-    console.log("fetching");
-    console.log(action);
     try {
         const catData = yield call(fetchFactsData);
         let facts = factsWithUniqueId(catData.data);
@@ -124,7 +121,8 @@ function* fetchFacts(action) {
 function* catSaga() {
     // TODO - use takeLatest?
     yield takeLatest(GET_CATS, fetchFacts);
-    // yield takeLatest(getCats, fetchImages);
+    // this is erroring because I had a forever loop pls hold
+    // yield takeLatest(GET_CATS, fetchImages);
 }
 
 export default catSaga;
