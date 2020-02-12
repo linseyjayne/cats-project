@@ -1,8 +1,14 @@
 import { combineReducers } from 'redux';
 
+import {
+  CATS_FACTS_SUCCEEDED,
+  CATS_IMAGES_SUCCEEDED,
+  FAVORITE_CARD
+} from './constants';
+
 const factsReducer = (state={}, action) => {
   switch(action.type) {
-    case "CATS_FACTS_SUCCEEDED": {
+    case CATS_FACTS_SUCCEEDED: {
       //todo help this to have more than 25 facts (adding on instead of replacing)
       state = action.facts
       break;
@@ -13,7 +19,7 @@ const factsReducer = (state={}, action) => {
 
 const imagesReducer = (state={}, action) => {
   switch(action.type) {
-    case "CATS_IMAGES_SUCCEEDED": {
+    case CATS_IMAGES_SUCCEEDED: {
       //todo help this to have more than 25 facts (adding on instead of replacing)
       state = action.images
       break;
@@ -24,7 +30,7 @@ const imagesReducer = (state={}, action) => {
 
 const favoritesReducer = (state=[], action) => {
   switch(action.type) {
-    case "FAVORITE_CARD": {
+    case FAVORITE_CARD: {
       state = [...state, action.newFavorite]
     }
   }

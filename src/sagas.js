@@ -7,7 +7,11 @@ import {
 import uniqueId from 'lodash/uniqueId';
 
 import { 
-    getCats
+    getCats,
+    fetchFactsSuccess,
+    fetchFactsFail,
+    fetchImagesSuccess,
+    fetchImagesFail,
 } from './actions';
 
 
@@ -92,35 +96,35 @@ export const factsWithLastWordSliced = (data) => {
     return withLastWords;
 }
 
-function* fetchCatFacts(action) {
+function* fetchFacts(action) {
     console.log("fetching");
     console.log(action);
     try {
         const catData = yield call(fetchFactsData);
         let facts = factsWithUniqueId(catData.data);
         facts = factsWithLastWordSliced(facts);
-        yield put({type: "CATS_FACTS_SUCCEEDED", facts});
+        yield put(fetchFactsSuccess(facts));
     } catch (e) {
         console.log(e.message);
-        yield put({type: "CATS_FACTS_FAILED", message: e.message});
+        yield put(fetchFactsFail(e.message));
     }
  }
 
- function* fetchCatImages(action) {
+ function* fetchImages(action) {
     try {
         const images = yield call(fetchImagesData);
-        yield put({type: "CATS_IMAGES_SUCCEEDED", images});
+        yield put(fetchImagesSuccess(images));
     } catch (e) {
         console.log(e.message);
-        yield put({type: "CATS_IMAGES_FAILED", message: e.message});
+        yield put(fetchImagesFail(e.message));
     }
  }
 
 
 function* catSaga() {
     // TODO - use takeLatest?
-    yield takeLatest(GET_CATS, fetchCatFacts);
-    // yield takeLatest(getCats, fetchCatImages);
+    yield takeLatest(GET_CATS, fetchFacts);
+    // yield takeLatest(getCats, fetchImages);
 }
 
 export default catSaga;
