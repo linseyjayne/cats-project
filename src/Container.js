@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import App from './App';
-import { GET_CATS } from './constants';
+import { getCats } from './actions';
 
 const mapStateToProps = state => {
   return {
@@ -11,7 +11,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-      handleCatsClick: () => dispatch({ type: GET_CATS }),
+      handleCatsClick: () => dispatch(getCats()),
     }
   };
 

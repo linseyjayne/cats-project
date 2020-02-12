@@ -2,12 +2,12 @@ import React from 'react';
 import isEmpty from 'lodash/isEmpty';
 
 import './App.css';
-import { Card } from './components/Card';
+import Card from './containers/Card';
 
 function CatFacts(data) {
   if (isEmpty(data.facts)) return null;
   const items = data.facts.map((fact) =>
-    <li key={fact.id}><Card fact={fact.fact} /></li>);
+    <li key={fact.id}><Card fact={fact} /></li>);
   return (
     <ul>{items}</ul>
   );

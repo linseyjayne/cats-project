@@ -1,9 +1,16 @@
 import React from 'react';
 import './Card.css';
 
-export const Card = (fact) => {
-    return <div className="cardContainer">
-        <div className="box" />
-        {fact.fact}
-    </div>
+class Card extends React.Component {
+    render() {
+        const { fact, handleFavoriteClick } = this.props;
+        return <div className="cardContainer">
+        <button onClick={handleFavoriteClick}>
+            <div className="box" />
+            {fact.fact}
+            </button>
+        </div>
+    }
 };
+
+export default Card;

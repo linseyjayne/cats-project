@@ -1,15 +1,20 @@
 import { 
     call, 
     put, 
-    takeEvery, 
+    takeLatest, 
 } from 'redux-saga/effects'
 
 import uniqueId from 'lodash/uniqueId';
 
 import { 
+    getCats
+} from './actions';
+
+
+import { 
     CAT_FACTS_API_URL,
     CAT_IMAGES_API_URL,
-    GET_CATS
+    GET_CATS, 
 } from './constants';
 
 export const fetchFactsData = async () => {
@@ -88,6 +93,8 @@ export const factsWithLastWordSliced = (data) => {
 }
 
 function* fetchCatFacts(action) {
+    console.log("fetching");
+    console.log(action);
     try {
         const catData = yield call(fetchFactsData);
         let facts = factsWithUniqueId(catData.data);
@@ -112,8 +119,8 @@ function* fetchCatFacts(action) {
 
 function* catSaga() {
     // TODO - use takeLatest?
-    yield takeEvery(GET_CATS, fetchCatFacts);
-    yield takeEvery(GET_CATS, fetchCatImages);
+    yield takeLatest(GET_CATS, fetchCatFacts);
+    // yield takeLatest(getCats, fetchCatImages);
 }
 
 export default catSaga;

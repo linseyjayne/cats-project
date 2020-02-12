@@ -22,7 +22,17 @@ const imagesReducer = (state={}, action) => {
   return state;
 };
 
+const favoritesReducer = (state=[], action) => {
+  switch(action.type) {
+    case "FAVORITE_CARD": {
+      state = [...state, action.newFavorite]
+    }
+  }
+  return state;
+};
+
 export const reducers = combineReducers({
   facts: factsReducer,
   images: imagesReducer,
+  favorites: favoritesReducer,
 }); 
