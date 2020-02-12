@@ -26,11 +26,13 @@
   margin-left: auto;
 }
 
-.Cards {
-  display: flex;
-  justify-content: center;
-}
 
 ul {
+  display: inline-block;
   list-style-type: none;
+}
+
+li {
+
+  float: left;
 }

@@ -5,6 +5,7 @@ import { GET_CATS } from './constants';
 const mapStateToProps = state => {
   return {
     facts: state.facts,
+    images: state.images,
   };
 };
 

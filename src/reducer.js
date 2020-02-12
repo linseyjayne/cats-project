@@ -12,6 +12,13 @@ const factsReducer = (state={}, action) => {
 };
 
 const imagesReducer = (state={}, action) => {
+  switch(action.type) {
+    case "CATS_IMAGES_SUCCEEDED": {
+      //todo help this to have more than 25 facts (adding on instead of replacing)
+      state = action.images
+      break;
+    }
+  }
   return state;
 };
 

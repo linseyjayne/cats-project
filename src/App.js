@@ -22,7 +22,7 @@ class App extends React.Component {
           cats cats cats
         </header>
           <div className="Body">
-            <div className="Cards">
+            <div>
               <CatFacts facts={facts} />
             </div>
           <button onClick={handleCatsClick}>pls give cats</button>
