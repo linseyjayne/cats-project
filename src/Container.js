@@ -5,7 +5,7 @@ import {
   favoriteCat,
   displayFavorites,
   sortByLastWord,
-
+  showOneCat,
  } from './actions';
 
 const mapStateToProps = state => {
@@ -22,6 +22,7 @@ const mapDispatchToProps = dispatch => {
       },
       handleDisplayFavoritesClick: () => dispatch(displayFavorites()),
       handleSortByLastClick: () => dispatch(sortByLastWord()),
+      handleShowOneCat: () => dispatch(showOneCat()),
     }
   };
 

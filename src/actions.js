@@ -4,7 +4,8 @@ import {
     SORT_BY_LAST_WORD,
     DISPLAY_FAVORITES,
     CAT_DATA_SUCCEEDED,
-    CAT_DATA_FAILED
+    CAT_DATA_FAILED,
+    VIEW_ONE_CAT
 } from './constants';
 
 export function favoriteCat(cat) {
@@ -29,4 +30,8 @@ export function fetchCatDataSuccess(data) {
 
 export function fetchCatDataFail(message) {
     return { type: CAT_DATA_FAILED, message }
+}
+
+export function showOneCat() {
+    return { type: VIEW_ONE_CAT }
 }

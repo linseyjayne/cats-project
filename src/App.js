@@ -15,7 +15,6 @@ export const CatFacts = ({ data, handleFavoriteClick }) => {
 
 export const FavoriteCatsButton = ({ data, handleDisplayFavoritesClick }) => {
   if (isEmpty(data)) return null;
-  // todo add onClick :)
   return (
     <button className="ActionButton" onClick={handleDisplayFavoritesClick}>I only want to see my favorite cats</button>
   );
@@ -24,17 +23,15 @@ export const FavoriteCatsButton = ({ data, handleDisplayFavoritesClick }) => {
 
 export const SortByLastWord = ({ data,handleSortByLastClick }) => {
   if (isEmpty(data)) return null;
-  // todo add onClick :)
   return (
     <button className="ActionButton" onClick={handleSortByLastClick}>Sort these cats by the last word in their facts.</button>
   );
 }
 
-export const TooManyCats = ({ data }) => {
+export const TooManyCats = ({ data, handleShowOneCat}) => {
   if (isEmpty(data)) return null;
-  // todo add onClick :)
   return (
-    <button className="ActionButton" onClick={console.log('sup')}>THIS IS TOO MANY CATS</button>
+    <button className="ActionButton" onClick={handleShowOneCat}>THIS IS TOO MANY CATS</button>
   );
 }
 
