@@ -12,4 +12,3 @@ export const CAT_DATA_SUCCEEDED = `${prefix}/CAT_DATA_SUCCEEDED`;
 export const CAT_DATA_FAILED = `${prefix}/CAT_DATA_FAILED`;
 
 export const VIEW_ONE_CAT = `${prefix}/VIEW_ONE_CAT`;
-export const VIEW_ALL_CATS = `${prefix}/VIEW_ALL_CATS`;
