@@ -4,6 +4,7 @@
 - adding scss
 - adding eslint
 - handle error state
+- handle IE for XML data where there is no DOM parser (this code was throwing an error, so set as TODO)
 
 ## UX
 - fixing styling of cats grid (some cats have more space between them than others)- improved colors
