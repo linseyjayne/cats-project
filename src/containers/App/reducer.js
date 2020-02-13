@@ -9,10 +9,10 @@ import {
 } from './constants';
 
 import {
-  updateFavorite,
+  addFavoriteCat,
   sortCatsByLastWord,
   getOnlyFavoriteCats,
-  selectAlphaCat,
+  selectOneCat,
 } from './util';
 
 const dataReducer = (state={}, action) => {
@@ -22,7 +22,7 @@ const dataReducer = (state={}, action) => {
       break;
     }
     case FAVORITE_CAT: {
-      state = updateFavorite(state, action.cat);
+      state = addFavoriteCat(state, action.cat);
       break;
     }
     case SORT_BY_LAST_WORD: {
@@ -34,7 +34,7 @@ const dataReducer = (state={}, action) => {
       break;
     }
     case VIEW_ONE_CAT: {
-      state = selectAlphaCat(state);
+      state = selectOneCat(state);
       break;
     }
     default: {

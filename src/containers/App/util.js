@@ -1,4 +1,4 @@
-export function updateFavorite(state, favoriteId) {
+export function addFavoriteCat(state, favoriteId) {
     let catData = state;
     catData.forEach((cat) => {
       if (cat.image.id === favoriteId)
@@ -34,7 +34,7 @@ export function updateFavorite(state, favoriteId) {
     return favorites;
   }
   
-  export function selectAlphaCat(state) {
+  export function selectOneCat(state) {
     const alphaCat = state[Math.floor(Math.random()*state.length)]; 
     return [alphaCat];
   }
