@@ -1,14 +1,14 @@
 import {
     GET_CATS,
-    FAVORITE_CARD,
+    FAVORITE_CAT,
     SORT_BY_LAST_WORD,
     DISPLAY_FAVORITES,
     CAT_DATA_SUCCEEDED,
     CAT_DATA_FAILED
 } from './constants';
 
-export function favoriteCard(fact) {
-    return { type: FAVORITE_CARD, fact }
+export function favoriteCat(cat) {
+    return { type: FAVORITE_CAT, cat }
 }
 
 export function sortByLastWord() {

@@ -4,8 +4,6 @@ import {
     takeLatest, 
 } from 'redux-saga/effects'
 
-import uniqueId from 'lodash/uniqueId';
-
 import { 
     fetchCatDataSuccess,
     fetchCatDataFail,
@@ -85,7 +83,7 @@ export const factsWithLastWordSliced = (data) => {
 export const stitchTogetherCatsAndFacts = (images, facts) => {
     let catsAndFacts = [];
     for (var i =0; i < images.length; i++) {
-        catsAndFacts.push({ image: images[i], fact: facts[i] });
+        catsAndFacts.push({ image: images[i], fact: facts[i], isFavorite: false });
     }
     return catsAndFacts;
 };
@@ -97,7 +95,7 @@ function* getData() {
         facts = factsWithLastWordSliced(facts.data);
 
         let data = {};
-        // TODO - what do we do if we get uneven lengths
+        // TODO - what do we do if we get uneven lengths???
         if (images.length === facts.length)
         {
             data = stitchTogetherCatsAndFacts(images, facts);

@@ -2,7 +2,10 @@ import { connect } from 'react-redux';
 import App from './App';
 import { 
   getCats,
-  favoriteCard
+  favoriteCat,
+  displayFavorites,
+  sortByLastWord,
+
  } from './actions';
 
 const mapStateToProps = state => {
@@ -15,8 +18,10 @@ const mapDispatchToProps = dispatch => {
     return {
       handleCatsClick: () => dispatch(getCats()),
       handleFavoriteClick: (fact) => {
-        dispatch(favoriteCard(fact));
+        dispatch(favoriteCat(fact));
       },
+      handleDisplayFavoritesClick: () => dispatch(displayFavorites()),
+      handleSortByLastClick: () => dispatch(sortByLastWord()),
     }
   };
 

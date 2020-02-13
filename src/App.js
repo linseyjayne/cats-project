@@ -13,9 +13,38 @@ export const CatFacts = ({ data, handleFavoriteClick }) => {
   );
 }
 
+export const FavoriteCatsButton = ({ data, handleDisplayFavoritesClick }) => {
+  if (isEmpty(data)) return null;
+  // todo add onClick :)
+  return (
+    <button className="ActionButton" onClick={handleDisplayFavoritesClick}>I only want to see my favorite cats</button>
+  );
+}
+
+
+export const SortByLastWord = ({ data,handleSortByLastClick }) => {
+  if (isEmpty(data)) return null;
+  // todo add onClick :)
+  return (
+    <button className="ActionButton" onClick={handleSortByLastClick}>Sort these cats by the last word in their facts.</button>
+  );
+}
+
+export const TooManyCats = ({ data }) => {
+  if (isEmpty(data)) return null;
+  // todo add onClick :)
+  return (
+    <button className="ActionButton" onClick={console.log('sup')}>THIS IS TOO MANY CATS</button>
+  );
+}
+
+
 class App extends React.Component {
   render(){
-    const { handleCatsClick } = this.props;
+    const { data, handleCatsClick } = this.props;
+    let buttonText = "pls give more cats";
+    if (isEmpty(data)) buttonText = "pls give cats";
+
     return (
       <div className="App">
         <header className="App-header">
@@ -25,8 +54,15 @@ class App extends React.Component {
             <div>
               <CatFacts {...this.props}/>
             </div>
-          <button onClick={handleCatsClick}>pls give cats</button>
-
+          <div className="CallToActions">
+            <button className="ActionButton" onClick={handleCatsClick}>{buttonText}</button>
+            <br />
+            <FavoriteCatsButton {...this.props} />
+            <br />
+            <SortByLastWord {...this.props} />
+            <br />
+            <TooManyCats {...this.props} />
+            </div>
           </div>
       </div>
     );

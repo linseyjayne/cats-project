@@ -3,7 +3,7 @@ import './Card.css';
 
 class Card extends React.Component {
     clicked = () => {
-        this.props.onClick(this.props.fact);
+        this.props.onClick(this.props.cat.image.id);
     }
 
     render() {
@@ -12,6 +12,7 @@ class Card extends React.Component {
         <button onClick={this.clicked}>
             <img 
                 src = {cat.image.url}
+                alt = "this is a cat being cute (probably) "
             />
             {cat.fact.fact}
             </button>

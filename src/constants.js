@@ -4,9 +4,12 @@ export const CAT_FACTS_API_URL = "https://catfact.ninja/facts?limit=25";
 const prefix = "catApp";
 
 export const GET_CATS = `${prefix}/GET_CATS`;
-export const FAVORITE_CARD = `${prefix}/FAVORITE_CARD`;
+export const FAVORITE_CAT = `${prefix}/FAVORITE_CAT`;
 export const SORT_BY_LAST_WORD = `${prefix}/SORT_BY_LAST_WORD`;
 export const DISPLAY_FAVORITES = `${prefix}/DISPLAY_FAVORITES`;
 
 export const CAT_DATA_SUCCEEDED = `${prefix}/CAT_DATA_SUCCEEDED`;
 export const CAT_DATA_FAILED = `${prefix}/CAT_DATA_FAILED`;
+
+export const VIEW_ONE_CAT = `${prefix}/VIEW_ONE_CAT`;
+export const VIEW_ALL_CATS = `${prefix}/VIEW_ALL_CATS`;

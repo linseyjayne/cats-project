@@ -26,6 +26,18 @@
   margin-left: auto;
 }
 
+.CallToActions {
+  display: flex;
+}
+
+.ActionButton {
+  background-color: #282c34;
+  color: white;
+  border: none;
+  padding: 8px;
+  margin: 8px;
+}
+
 
 ul {
   display: inline-block;
