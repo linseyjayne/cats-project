@@ -26,30 +26,30 @@ export const fetchFactsData = async () => {
     }
   };
 
-  export const fetchImagesData = async () => {
+export const fetchImagesData = async () => {
     try {
-      const response = await fetch(CAT_IMAGES_API_URL);
-      const data = await response.text();
-      let parser;
-      let xmlDoc;
-      if (window.DOMParser) {
-          parser = new DOMParser();
-          xmlDoc = parser.parseFromString(data, "text/xml");
-          xmlDoc = xmlDoc.getElementsByTagName("images")[0].children;
-          var list = [];
-          // iterate over elements in images node
-          // for each element, take important attributes and convert to json object,
-          // push to array to return to be consistent w/ facts data
-          for (var i = 0; i < xmlDoc.length; i++)
-          {
-              var imageElement = xmlDoc[i].children;
-              var image ={
-                id: imageElement[0].innerHTML,
-                url: imageElement[1].innerHTML,
-                source_url: imageElement[2].innerHTML,
-              };
-              list.push(image);
-          }
+        const response = await fetch(CAT_IMAGES_API_URL);
+        const data = await response.text();
+        let parser;
+        let xmlDoc;
+        if (window.DOMParser) {
+            parser = new DOMParser();
+            xmlDoc = parser.parseFromString(data, "text/xml");
+            xmlDoc = xmlDoc.getElementsByTagName("images")[0].children;
+            var list = [];
+            // iterate over elements in images node
+            // for each element, take important attributes and convert to json object,
+            // push to array to return to be consistent w/ facts data
+            for (var i = 0; i < xmlDoc.length; i++)
+            {
+                var imageElement = xmlDoc[i].children;
+                var image ={
+                    id: imageElement[0].innerHTML,
+                    url: imageElement[1].innerHTML,
+                    source_url: imageElement[2].innerHTML,
+                };
+                list.push(image);
+            }
         }
         // TODO make IE happy
         // else // Internet Explorer
@@ -58,11 +58,11 @@ export const fetchFactsData = async () => {
         //     xmlDoc.async = false;
         //     xmlDoc.loadXML(data);
         // }
-      return list;
+        return list;
     } catch (e) {
-      console.log(e);
+        console.log(e);
     }
-  };
+};
 
 export const stripNonAlphaNumeric = (word) => {
     const alphaNumericOnly = word.replace(/[^A-Za-z0-9]/g, "");
