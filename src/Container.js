@@ -15,8 +15,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
       handleCatsClick: () => dispatch(getCats()),
-      handleFavoriteClick: (facts) => {
-        dispatch(favoriteCard(facts));
+      handleFavoriteClick: (fact) => {
+        dispatch(favoriteCard(fact));
       },
     }
   };
