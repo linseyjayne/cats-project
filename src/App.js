@@ -2,12 +2,12 @@ import React from 'react';
 import isEmpty from 'lodash/isEmpty';
 
 import './App.css';
-import Card from './containers/Card';
+import Card from './components/Card';
 
-function CatFacts(data) {
-  if (isEmpty(data.facts)) return null;
-  const items = data.facts.map((fact) =>
-    <li key={fact.id}><Card fact={fact} /></li>);
+export const CatFacts = ({ facts, handleFavoriteClick }) => {
+  if (isEmpty(facts)) return null;
+  const items = facts.map((fact) =>
+    <li key={fact.id}><Card fact={fact} onClick={handleFavoriteClick} /></li>);
   return (
     <ul>{items}</ul>
   );
@@ -15,7 +15,7 @@ function CatFacts(data) {
 
 class App extends React.Component {
   render(){
-    const { facts, handleCatsClick } = this.props;
+    const { handleCatsClick } = this.props;
     return (
       <div className="App">
         <header className="App-header">
@@ -23,7 +23,7 @@ class App extends React.Component {
         </header>
           <div className="Body">
             <div>
-              <CatFacts facts={facts} />
+              <CatFacts {...this.props}/>
             </div>
           <button onClick={handleCatsClick}>pls give cats</button>
 

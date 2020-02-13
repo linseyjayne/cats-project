@@ -1,6 +1,9 @@
 import { connect } from 'react-redux';
 import App from './App';
-import { getCats } from './actions';
+import { 
+  getCats,
+  favoriteCard
+ } from './actions';
 
 const mapStateToProps = state => {
   return {
@@ -12,6 +15,9 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
       handleCatsClick: () => dispatch(getCats()),
+      handleFavoriteClick: (facts) => {
+        dispatch(favoriteCard(facts));
+      },
     }
   };
 

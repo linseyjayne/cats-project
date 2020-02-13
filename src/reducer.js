@@ -31,7 +31,7 @@ const imagesReducer = (state={}, action) => {
 const favoritesReducer = (state=[], action) => {
   switch(action.type) {
     case FAVORITE_CARD: {
-      state = [...state, action.newFavorite]
+      state = [...state, action.fact.id]
     }
   }
   return state;

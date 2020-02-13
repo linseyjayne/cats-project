@@ -9,8 +9,8 @@ import {
     CATS_IMAGES_FAILED,
 } from './constants';
 
-export function favoriteCard(cardData) {
-    return { type: FAVORITE_CARD, cardData }
+export function favoriteCard(fact) {
+    return { type: FAVORITE_CARD, fact }
 }
 
 export function sortByLastWord() {
