@@ -1,6 +1,7 @@
 import React from 'react';
 
 import './styles.css';
+import Instructions from './Instructions';
 import CatFacts from './CatFacts';
 import ActionButtons from './ActionButtons';
 
@@ -13,6 +14,7 @@ class App extends React.Component {
         </header>
           <div className="body">
               <CatFacts {...this.props} />
+              <Instructions />
               <ActionButtons {...this.props} />
           </div>
       </div>
