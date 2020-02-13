@@ -16,21 +16,21 @@ export const CatFacts = ({ data, handleFavoriteClick }) => {
 export const FavoriteCatsButton = ({ data, handleDisplayFavoritesClick }) => {
   if (isEmpty(data)) return null;
   return (
-    <button className="actionButton" onClick={handleDisplayFavoritesClick}>I only want to see my favorite cats</button>
+    <button className="actionButton" onClick={handleDisplayFavoritesClick}>Show me only my favorite cats</button>
   );
 }
 
 export const SortByLastWord = ({ data,handleSortByLastClick }) => {
   if (isEmpty(data)) return null;
   return (
-    <button className="actionButton" onClick={handleSortByLastClick}>Sort these cats by the last word in their facts.</button>
+    <button className="actionButton" onClick={handleSortByLastClick}>Show these cats sorted by the last word in their facts</button>
   );
 }
 
 export const TooManyCats = ({ data, handleShowOneCat}) => {
   if (isEmpty(data)) return null;
   return (
-    <button className="actionButton" onClick={handleShowOneCat}>THIS IS TOO MANY CATS</button>
+    <button className="actionButton" onClick={handleShowOneCat}>Show me just one cat</button>
   );
 }
 
@@ -38,8 +38,8 @@ export const TooManyCats = ({ data, handleShowOneCat}) => {
 class App extends React.Component {
   render(){
     const { data, handleCatsClick } = this.props;
-    let buttonText = "pls give more cats";
-    if (isEmpty(data)) buttonText = "pls give cats";
+    let buttonText = "Show me more cats!";
+    if (isEmpty(data)) buttonText = "Show me cats!";
 
     return (
       <div className="app">
