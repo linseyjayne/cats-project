@@ -7,8 +7,7 @@ import {
 
 const mapStateToProps = state => {
   return {
-    facts: state.data.facts,
-    images: state.data.images,
+    data: state.data,
   };
 };
 

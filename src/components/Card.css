@@ -5,7 +5,8 @@
 }
 
 .cardContainer {
-    width: 300px;
+    width: auto;
+    height: auto;
     padding: 8px;
 
     outline-color: black;
@@ -19,4 +20,14 @@
 
     margin: 16px;
     
+}
+
+button { 
+    width: 316px;
+    height: auto;
+}
+
+img {
+    height: 300px;
+    width: 300px;
 }

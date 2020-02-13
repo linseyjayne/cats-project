@@ -66,17 +66,6 @@ export const fetchFactsData = async () => {
     }
   };
 
-// maybe TODO
-// optimize factsWithUniqueId + factsWithLastWordSliced so that
-// we only loop through the data one time
-export const factsWithUniqueId = (data) => {
-    let withUniqueIds = data;
-    withUniqueIds.forEach((fact) => {
-        fact.id = uniqueId('fact_');
-      });
-      return withUniqueIds;
-}
-
 export const stripNonAlphaNumeric = (word) => {
     const alphaNumericOnly = word.replace(/[^A-Za-z0-9]/g, "");
     return alphaNumericOnly;
@@ -93,16 +82,26 @@ export const factsWithLastWordSliced = (data) => {
     return withLastWords;
 }
 
+export const stitchTogetherCatsAndFacts = (images, facts) => {
+    let catsAndFacts = [];
+    for (var i =0; i < images.length; i++) {
+        catsAndFacts.push({ image: images[i], fact: facts[i] });
+    }
+    return catsAndFacts;
+};
+
 function* getData() {
     try {
         const images = yield call(fetchImagesData);
         let facts = yield call(fetchFactsData);
-        facts = factsWithUniqueId(facts.data);
-        facts = factsWithLastWordSliced(facts);
+        facts = factsWithLastWordSliced(facts.data);
 
-        const data = {
-            images, facts
-        };
+        let data = {};
+        // TODO - what do we do if we get uneven lengths
+        if (images.length === facts.length)
+        {
+            data = stitchTogetherCatsAndFacts(images, facts);
+        }
         yield put(fetchCatDataSuccess(data));
     } catch (e) {
         console.log(e.message);

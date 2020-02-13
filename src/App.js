@@ -4,10 +4,10 @@ import isEmpty from 'lodash/isEmpty';
 import './App.css';
 import Card from './components/Card';
 
-export const CatFacts = ({ facts, handleFavoriteClick }) => {
-  if (isEmpty(facts)) return null;
-  const items = facts.map((fact) =>
-    <li key={fact.id}><Card fact={fact} onClick={handleFavoriteClick} /></li>);
+export const CatFacts = ({ data, handleFavoriteClick }) => {
+  if (isEmpty(data)) return null;
+  const items = data.map((cat) =>
+    <li key={cat.image.id}><Card cat={cat} onClick={handleFavoriteClick} /></li>);
   return (
     <ul>{items}</ul>
   );

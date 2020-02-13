@@ -7,11 +7,13 @@ class Card extends React.Component {
     }
 
     render() {
-        const { fact } = this.props;
+        const { cat } = this.props;
         return <div className="cardContainer">
         <button onClick={this.clicked}>
-            <div className="box" />
-            {fact.fact}
+            <img 
+                src = {cat.image.url}
+            />
+            {cat.fact.fact}
             </button>
         </div>
     }
