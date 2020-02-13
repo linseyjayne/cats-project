@@ -1,6 +1,7 @@
 ## Things that would make this project better
 
 ## code style
+- add proptypes!!
 - adding scss
 - adding eslint
 - handle error state
