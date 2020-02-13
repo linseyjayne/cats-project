@@ -9,14 +9,13 @@ import {
     fetchCatDataFail,
 } from './actions';
 
-
 import { 
     CAT_FACTS_API_URL,
     CAT_IMAGES_API_URL,
     GET_CATS, 
 } from './constants';
 
-export const fetchFactsData = async () => {
+export const fetchFacts = async () => {
     try {
       const response = await fetch(CAT_FACTS_API_URL);
       const data = await response.json();
@@ -26,7 +25,7 @@ export const fetchFactsData = async () => {
     }
   };
 
-export const fetchImagesData = async () => {
+export const fetchImages = async () => {
     try {
         const response = await fetch(CAT_IMAGES_API_URL);
         const data = await response.text();
@@ -90,8 +89,8 @@ export const stitchTogetherCatsAndFacts = (images, facts) => {
 
 function* getData() {
     try {
-        const images = yield call(fetchImagesData);
-        let facts = yield call(fetchFactsData);
+        const images = yield call(fetchImages);
+        let facts = yield call(fetchFacts);
         facts = factsWithLastWordSliced(facts.data);
 
         let data = {};
