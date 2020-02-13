@@ -8,8 +8,5 @@ export const FAVORITE_CARD = `${prefix}/FAVORITE_CARD`;
 export const SORT_BY_LAST_WORD = `${prefix}/SORT_BY_LAST_WORD`;
 export const DISPLAY_FAVORITES = `${prefix}/DISPLAY_FAVORITES`;
 
-export const CATS_FACTS_SUCCEEDED = `${prefix}/CATS_FACTS_SUCCEEDED`;
-export const CATS_FACTS_FAILED = `${prefix}/CATS_FACTS_FAILED`;
-
-export const CATS_IMAGES_SUCCEEDED = `${prefix}/CATS_IMAGES_SUCCEEDED`;
-export const CATS_IMAGES_FAILED = `${prefix}/CATS_IMAGES_SUCCATS_IMAGES_FAILEDCEEDED`;
+export const CAT_DATA_SUCCEEDED = `${prefix}/CAT_DATA_SUCCEEDED`;
+export const CAT_DATA_FAILED = `${prefix}/CAT_DATA_FAILED`;

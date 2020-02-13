@@ -7,10 +7,8 @@ import {
 import uniqueId from 'lodash/uniqueId';
 
 import { 
-    fetchFactsSuccess,
-    fetchFactsFail,
-    fetchImagesSuccess,
-    fetchImagesFail,
+    fetchCatDataSuccess,
+    fetchCatDataFail,
 } from './actions';
 
 
@@ -95,34 +93,25 @@ export const factsWithLastWordSliced = (data) => {
     return withLastWords;
 }
 
-function* fetchFacts(action) {
-    try {
-        const catData = yield call(fetchFactsData);
-        let facts = factsWithUniqueId(catData.data);
-        facts = factsWithLastWordSliced(facts);
-        yield put(fetchFactsSuccess(facts));
-    } catch (e) {
-        console.log(e.message);
-        yield put(fetchFactsFail(e.message));
-    }
- }
-
- function* fetchImages(action) {
+function* getData() {
     try {
         const images = yield call(fetchImagesData);
-        yield put(fetchImagesSuccess(images));
+        let facts = yield call(fetchFactsData);
+        facts = factsWithUniqueId(facts.data);
+        facts = factsWithLastWordSliced(facts);
+
+        const data = {
+            images, facts
+        };
+        yield put(fetchCatDataSuccess(data));
     } catch (e) {
         console.log(e.message);
-        yield put(fetchImagesFail(e.message));
+        yield put(fetchCatDataFail(e.message));
     }
- }
-
+}
 
 function* catSaga() {
-    // TODO - use takeLatest?
-    yield takeLatest(GET_CATS, fetchFacts);
-    // this is erroring because I had a forever loop pls hold
-    // yield takeLatest(GET_CATS, fetchImages);
+    yield takeLatest(GET_CATS, getData);
 }
 
 export default catSaga;
