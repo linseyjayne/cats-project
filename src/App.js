@@ -7,16 +7,16 @@ import Card from './components/Card';
 export const CatFacts = ({ data, handleFavoriteClick }) => {
   if (isEmpty(data)) return null;
   const items = data.map((cat) =>
-    <li key={cat.image.id}><Card cat={cat} onClick={handleFavoriteClick} /></li>);
+    <li className="listItem" key={cat.image.id}><Card cat={cat} onClick={handleFavoriteClick} /></li>);
   return (
-    <ul>{items}</ul>
+    <ul className="listOfCats">{items}</ul>
   );
 }
 
 export const FavoriteCatsButton = ({ data, handleDisplayFavoritesClick }) => {
   if (isEmpty(data)) return null;
   return (
-    <button className="ActionButton" onClick={handleDisplayFavoritesClick}>I only want to see my favorite cats</button>
+    <button className="actionButton" onClick={handleDisplayFavoritesClick}>I only want to see my favorite cats</button>
   );
 }
 
@@ -24,14 +24,14 @@ export const FavoriteCatsButton = ({ data, handleDisplayFavoritesClick }) => {
 export const SortByLastWord = ({ data,handleSortByLastClick }) => {
   if (isEmpty(data)) return null;
   return (
-    <button className="ActionButton" onClick={handleSortByLastClick}>Sort these cats by the last word in their facts.</button>
+    <button className="actionButton" onClick={handleSortByLastClick}>Sort these cats by the last word in their facts.</button>
   );
 }
 
 export const TooManyCats = ({ data, handleShowOneCat}) => {
   if (isEmpty(data)) return null;
   return (
-    <button className="ActionButton" onClick={handleShowOneCat}>THIS IS TOO MANY CATS</button>
+    <button className="actionButton" onClick={handleShowOneCat}>THIS IS TOO MANY CATS</button>
   );
 }
 
@@ -43,16 +43,16 @@ class App extends React.Component {
     if (isEmpty(data)) buttonText = "pls give cats";
 
     return (
-      <div className="App">
-        <header className="App-header">
+      <div className="app">
+        <header className="header">
           cats cats cats
         </header>
-          <div className="Body">
+          <div className="body">
             <div>
               <CatFacts {...this.props}/>
             </div>
-          <div className="CallToActions">
-            <button className="ActionButton" onClick={handleCatsClick}>{buttonText}</button>
+          <div className="actionButtonsSection">
+            <button className="actionButton" onClick={handleCatsClick}>{buttonText}</button>
             <br />
             <FavoriteCatsButton {...this.props} />
             <br />

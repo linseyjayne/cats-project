@@ -1,9 +1,3 @@
-.box {
-    width: 100px;
-    height: 100px;
-    background: #7216B5;
-}
-
 .cardContainer {
     width: auto;
     height: auto;
@@ -19,15 +13,14 @@
     justify-content: center;
 
     margin: 16px;
-    
 }
 
-button { 
+.buttonSize { 
     width: 316px;
     height: auto;
 }
 
-img {
+.imageSize {
     height: 300px;
     width: 300px;
 }

@@ -1,8 +1,8 @@
-.App {
+.app {
   text-align: center;
 }
 
-.App-header {
+.header {
   background-color: #282c34;
   min-height: 10vh;
   display: flex;
@@ -13,11 +13,7 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-.Body { 
+.body { 
   max-width: 1136px;
   margin: 0 auto;
   margin-top: 0px;
@@ -26,11 +22,11 @@
   margin-left: auto;
 }
 
-.CallToActions {
+.actionButtonsSection {
   display: flex;
 }
 
-.ActionButton {
+.actionButton {
   background-color: #282c34;
   color: white;
   border: none;
@@ -38,13 +34,19 @@
   margin: 8px;
 }
 
+.actionButton:hover {
+  background-color: #7216B5;  
+}
 
-ul {
+.actionButton:active {
+  background-color: #666;
+}
+
+.listOfCats {
   display: inline-block;
   list-style-type: none;
 }
 
-li {
-
+.listItem {
   float: left;
 }

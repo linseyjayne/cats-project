@@ -37,6 +37,9 @@ const dataReducer = (state={}, action) => {
       state = selectAlphaCat(state);
       break;
     }
+    default: {
+      break; // do nothing to the state
+    }
   }
   return state;
 };

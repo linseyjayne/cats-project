@@ -8,9 +8,10 @@ class Card extends React.Component {
 
     render() {
         const { cat } = this.props;
-        return <div className="cardContainer">
-        <button onClick={this.clicked}>
+        return <div className="buttonSize">
+        <button className="button" onClick={this.clicked}>
             <img 
+                className="imageSize"
                 src = {cat.image.url}
                 alt = "this is a cat being cute (probably) "
             />
