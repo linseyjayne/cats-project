@@ -21,7 +21,16 @@ export function addFavoriteCat(state, favoriteId) {
             return 0;
       } 
     });
-    return sortedList;
+
+    // TODO find out why sortedList above is not enough for the component to update
+    // Having an issue where if I just return sortedList (which looks to be sorted, and redux does confirm that it IS different)
+    // then the component is not noticing any change or updating. if I rebuild the list (as below) then it's updating fine with no issue.
+    let testList = [];
+    for (var i = 0; i < state.length; i++)
+    {
+      testList.push(state[i]);
+    }
+    return testList;
   }
   
   export function getOnlyFavoriteCats(state) {
