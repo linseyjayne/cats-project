@@ -3,6 +3,7 @@
 ## code style
 - adding scss
 - adding eslint
+- handle error state
 
 ## UX
 - fixing styling of cats grid (some cats have more space between them than others)- improved colors

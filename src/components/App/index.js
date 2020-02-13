@@ -1,8 +1,8 @@
 import React from 'react';
 import isEmpty from 'lodash/isEmpty';
 
-import './App.css';
-import Card from './components/Card';
+import './styles.css';
+import Card from '../Card/index';
 
 export const CatFacts = ({ data, handleFavoriteClick }) => {
   if (isEmpty(data)) return null;
@@ -19,7 +19,6 @@ export const FavoriteCatsButton = ({ data, handleDisplayFavoritesClick }) => {
     <button className="actionButton" onClick={handleDisplayFavoritesClick}>I only want to see my favorite cats</button>
   );
 }
-
 
 export const SortByLastWord = ({ data,handleSortByLastClick }) => {
   if (isEmpty(data)) return null;
